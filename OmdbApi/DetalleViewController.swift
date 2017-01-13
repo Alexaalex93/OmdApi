@@ -33,8 +33,10 @@ class DetalleViewController: UIViewController {
             html += "<meta name=/ viewport/ content=/ width=device-width, initial-scale=1/>"
             html += "<style> body {font-size: 150%; } </style>"
             html += "</head>"
+            html += "<b>"+"<i>"+"<u>"
             html += "<body>"
             html += title
+             html += "</b>"+"</i>"+"</u>"
             html += "</br>"
             html += body!
             html += "</br>"

@@ -16,6 +16,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        //HAY QUE DARLE UN ID AL NAVIGATION CONTROLLER EN EL STORYBOARD
+        //ESTMOS CREANDO UN VIEWCONTROLLER MEDIANTE CODIGO. COMO CREAR PESTAÑS EN TIEMPO DE EJECUCION, SI QUEREMOS USAR EL MISMO CODIGO QUE EN LA OTRA
+        
+        
+        if let tabBarController = window?.rootViewController as? UITabBarController{ //accedes a la ventana, al viewcontroller raiz y miras si es UITabBarController
+            let storyboard = UIStoryboard(name: "Main", bundle: nil) //Creamos una constante Storyboard e iniciamos de tipo storyboard con el nombre main(El nombre del storiboard por defecto) y un bundle nil (que quiere decir que coge el bundle de esta aplicacion)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NavController")//Al tener el storyboard inicializado podemos ya utilizar sis metodos. Inicializamos el viewcontorller que tenga ese identificador
+            vc.tabBarItem = UITabBarItem(tabBarSystemItem: .topRated, tag: 1) //1 PARA PODER IDENTIFICAR A QUE TABBARITEM SE REFIERE
+            tabBarController.viewControllers?.append(vc) //Lo añadimos al tabBarController
+        
+        }
         return true
     }
 

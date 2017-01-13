@@ -16,8 +16,13 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let urlString: String
-        urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
         
+        if navigationController?.tabBarItem.tag == 0 {
+        urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        }
+        else{
+        urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=1000&limit=10"
+        }
         if let url = URL(string: urlString){ //Comprueba si esta vacio o no
             if let data = try? Data(contentsOf: url){
                 let json = JSON(data: data)
@@ -28,8 +33,12 @@ class MainTableViewController: UITableViewController {
                 if json["metadata"]["responseInfo"]["status"].intValue == 200 {
                     //Si es valido, podemos parsearlo
                     parse(json: json)
+                    
                 }
+                
+                
             }
+        
         }
         
     }

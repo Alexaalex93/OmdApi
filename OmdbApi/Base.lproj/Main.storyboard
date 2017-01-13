@@ -73,7 +73,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" systemItem="topRated" id="ChW-Sd-9Gh"/>
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="ChW-Sd-9Gh"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rPy-WO-jjT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -82,8 +82,8 @@
         <!--Navigation Controller-->
         <scene sceneID="gMZ-aw-t4r">
             <objects>
-                <navigationController id="OXN-wU-z1L" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="more" id="ZGx-9Y-x2t"/>
+                <navigationController storyboardIdentifier="NavController" id="OXN-wU-z1L" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="bookmarks" id="ZGx-9Y-x2t"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sjK-OY-UWs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
