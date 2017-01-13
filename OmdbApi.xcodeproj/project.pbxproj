@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		094EFC851E28C42400A83BEC /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094EFC841E28C42400A83BEC /* MainTableViewController.swift */; };
 		094EFC871E28C54F00A83BEC /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094EFC861E28C54F00A83BEC /* SwiftyJSON.swift */; };
+		094EFC891E28D75700A83BEC /* DetalleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094EFC881E28D75700A83BEC /* DetalleViewController.swift */; };
 		096243421E264089009A837E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096243411E264089009A837E /* AppDelegate.swift */; };
 		096243441E264089009A837E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096243431E264089009A837E /* ViewController.swift */; };
 		096243471E264089009A837E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 096243451E264089009A837E /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* Begin PBXFileReference section */
 		094EFC841E28C42400A83BEC /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		094EFC861E28C54F00A83BEC /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		094EFC881E28D75700A83BEC /* DetalleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetalleViewController.swift; sourceTree = "<group>"; };
 		0962433E1E264089009A837E /* OmdbApi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmdbApi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		096243411E264089009A837E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		096243431E264089009A837E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 			children = (
 				096243411E264089009A837E /* AppDelegate.swift */,
 				096243431E264089009A837E /* ViewController.swift */,
+				094EFC881E28D75700A83BEC /* DetalleViewController.swift */,
 				094EFC841E28C42400A83BEC /* MainTableViewController.swift */,
 				096243451E264089009A837E /* Main.storyboard */,
 				094EFC861E28C54F00A83BEC /* SwiftyJSON.swift */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				096243441E264089009A837E /* ViewController.swift in Sources */,
+				094EFC891E28D75700A83BEC /* DetalleViewController.swift in Sources */,
 				094EFC851E28C42400A83BEC /* MainTableViewController.swift in Sources */,
 				096243421E264089009A837E /* AppDelegate.swift in Sources */,
 				094EFC871E28C54F00A83BEC /* SwiftyJSON.swift in Sources */,

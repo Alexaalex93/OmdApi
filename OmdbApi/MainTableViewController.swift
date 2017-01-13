@@ -75,7 +75,11 @@ class MainTableViewController: UITableViewController {
 
         return cell
     }
- 
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = DetalleViewController()  //Para cargar una vista sin segue
+        vc.itemDetalle = petitions[indexPath.row]
+        navigationController?.pushViewController(vc, animated: true)
+    }
 
     /*
     // Override to support conditional editing of the table view.
