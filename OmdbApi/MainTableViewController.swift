@@ -16,37 +16,41 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let urlString: String
-        urlString = "https://api.whitehouse.gov/v1/petitions.json?limit=100"
+        urlString = "https://www.omdbapi.com/?i=tt0944947&Season=1"
         
         if let url = URL(string: urlString){ //Comprueba si esta vacio o no
             if let data = try? Data(contentsOf: url){
                 let json = JSON(data: data)
                 
                 //Parsea
-                print(json["metadata"]["responseInfo"]["status"])
-                
-                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    //Si es valido, podemos parsearlo
+               // print(json["metadata"]["responseInfo"]["status"])
+
                     parse(json: json)
-                }
             }
         }
-        
     }
+        
+    
 
     
     func parse(json: JSON){
         //print(json["results"])
         
-        for results in json["results"].arrayValue{
-            let title = results["title"].stringValue
-            let body = results["body"].stringValue
-            let sigs = results["signatureCount"].stringValue
-            let obj = ["title": title, "body": body, "sigs": sigs]
+        for results in json["Episodes"].arrayValue{
+            
+            let title = results["Title"].stringValue
+            let released = results["Released"].stringValue
+            let episode = results["Episode"].stringValue
+            let imdbRating = results["imdbRating"].stringValue
+            let imdbID = results["imdbID"].stringValue
+            
+            let obj = ["Title": title, "Released": released, "Episode": episode, "imdbRating": imdbRating, "imdbID": imdbID]
+
             petitions.append(obj)
             
         }
     }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -70,8 +74,8 @@ class MainTableViewController: UITableViewController {
 
         // Configure the cell...
         let petition = petitions[indexPath.row]
-        cell.textLabel?.text = petition["title"]
-        cell.detailTextLabel?.text = petition["body"]
+        cell.textLabel?.text = petition["Title"]
+        cell.detailTextLabel?.text = petition["Episode"]
 
         return cell
     }
