@@ -6,6 +6,26 @@
 //  Copyright © 2017 cice. All rights reserved.
 //
 
+
+
+//GCD - Grand Central Dispatch
+//Threads
+//Async ()
+//FIFO - First In First Out
+//QoS - Quality of Service
+    //4 Tipos de colas
+    //User Interactive (Mayor prioridad)
+    //User Initiated (Tareas que se ejecutan cuando el usuaro queira que se ejecuten)
+    //Utility Queue (Tarda un poco)
+    //Background (Procesos que pueden tardar un tiempo y el usuario no tiene porqué saber que está ocurriendo)
+//DEFAULT
+//DispatchQueue.global().async { _ in
+
+//DispatchQueue.global(qos: .uderInitiated).async { _ in }
+
+
+
+
 import UIKit
 
 class MainTableViewController: UITableViewController {
@@ -23,24 +43,24 @@ class MainTableViewController: UITableViewController {
         else{
         urlString = "https://api.whitehouse.gov/v1/petitions.json?signatureCountFloor=1000&limit=10"
         }
-        if let url = URL(string: urlString){ //Comprueba si esta vacio o no
-            if let data = try? Data(contentsOf: url){
-                let json = JSON(data: data)
-                
-                //Parsea
-                print(json["metadata"]["responseInfo"]["status"])
-                
-                if json["metadata"]["responseInfo"]["status"].intValue == 200 {
-                    //Si es valido, podemos parsearlo
-                    parse(json: json)
+        
+        DispatchQueue.global(qos: .userInitiated).async {//Para iniciar la carga en segundo plano
+            
+            if let url = URL(string: urlString){ //Comprueba si esta vacio o no
+                if let data = try? Data(contentsOf: url){
+                    let json = JSON(data: data)
                     
+                    //Parsea
+                    print(json["metadata"]["responseInfo"]["status"])
+                    
+                    if json["metadata"]["responseInfo"]["status"].intValue == 200 {
+                        //Si es valido, podemos parsearlo
+                        self.parse(json: json) //Hay que ponerlo como self, para que sepa que no es un metodo dentro del hilo sino un metodo de la clase
+                        
+                    }
                 }
-                
-                
             }
-        
         }
-        
     }
 
     
@@ -53,7 +73,10 @@ class MainTableViewController: UITableViewController {
             let sigs = results["signatureCount"].stringValue
             let obj = ["title": title, "body": body, "sigs": sigs]
             petitions.append(obj)
-            
+        }
+        
+        DispatchQueue.main.async { //Para salir al codigo principal	
+            self.tableView.reloadData()
         }
     }
     override func didReceiveMemoryWarning() {
